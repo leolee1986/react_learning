@@ -1,5 +1,6 @@
 
 // 1st react component, create a var, use React.createClass(), inside it require render method.
+// getDefaultProps to set default props in case no data pass in
 var Greeter = React.createClass({
   getDefaultProps: function() {
     return {
