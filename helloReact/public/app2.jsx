@@ -2,6 +2,9 @@
 // render on the page, when user update input, it updates screen, don't reflesh
 // the page when submit clicked.
 
+var React = require('react');
+var ReactDOM = require('react-dom');
+
 var GreeterMessage2 = React.createClass({
   render: function() {
     var name = this.props.name;
