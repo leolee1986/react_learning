@@ -49,6 +49,8 @@
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(158);
 	var Main = __webpack_require__(159);
+	var Weather = __webpack_require__(218);
+	var About = __webpack_require__(219);
 
 	// this syntx may look confusing, we can use the example below in the comment
 
@@ -66,7 +68,12 @@
 	ReactDOM.render(React.createElement(
 	  Router,
 	  { history: hashHistory },
-	  React.createElement(Route, { path: '/', component: Main })
+	  React.createElement(
+	    Route,
+	    { path: '/', component: Main },
+	    React.createElement(Route, { path: 'about', component: About }),
+	    React.createElement(IndexRoute, { component: Weather })
+	  )
 	), document.getElementById('app'));
 
 /***/ },
@@ -19776,6 +19783,7 @@
 	  displayName: 'Main',
 
 	  render: function render() {
+	    // it can only return one root tag element
 	    return React.createElement(
 	      'div',
 	      null,
@@ -19784,7 +19792,8 @@
 	        'h2',
 	        null,
 	        'Main component'
-	      )
+	      ),
+	      this.props.children
 	    );
 	  }
 	});
@@ -19798,15 +19807,33 @@
 	'use strict';
 
 	var React = __webpack_require__(1);
+	//
+
+	var _require = __webpack_require__(161),
+	    Link = _require.Link;
 
 	var Nav = React.createClass({
 	  displayName: 'Nav',
 
 	  render: function render() {
 	    return React.createElement(
-	      'h2',
+	      'div',
 	      null,
-	      'Nav component'
+	      React.createElement(
+	        'h2',
+	        null,
+	        'Nav component'
+	      ),
+	      React.createElement(
+	        Link,
+	        { to: '/' },
+	        'Get Weather'
+	      ),
+	      React.createElement(
+	        Link,
+	        { to: '/about' },
+	        'About'
+	      )
 	    );
 	  }
 	});
@@ -24892,6 +24919,50 @@
 
 	exports['default'] = _createRouterHistory2['default'](_historyLibCreateHashHistory2['default']);
 	module.exports = exports['default'];
+
+/***/ },
+/* 218 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+
+	var Weather = React.createClass({
+	  displayName: 'Weather',
+
+	  render: function render() {
+	    return React.createElement(
+	      'h3',
+	      null,
+	      'Weather component'
+	    );
+	  }
+	});
+
+	module.exports = Weather;
+
+/***/ },
+/* 219 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+
+	var About = React.createClass({
+	  displayName: 'About',
+
+	  render: function render() {
+	    return React.createElement(
+	      'h3',
+	      null,
+	      'About component'
+	    );
+	  }
+	});
+
+	module.exports = About;
 
 /***/ }
 /******/ ]);

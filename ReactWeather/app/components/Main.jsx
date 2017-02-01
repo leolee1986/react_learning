@@ -1,6 +1,7 @@
 var React = require('react');
 var Nav = require('Nav');
 
+
 var Main = React.createClass({
   render: function(){
     // it can only return one root tag element
@@ -8,6 +9,7 @@ var Main = React.createClass({
       <div>
         <Nav/>
         <h2>Main component</h2>
+        {this.props.children}
       </div>
     );
   }
