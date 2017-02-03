@@ -51,6 +51,7 @@
 	var Main = __webpack_require__(159);
 	var Weather = __webpack_require__(218);
 	var About = __webpack_require__(219);
+	var Example = __webpack_require__(220);
 
 	// this syntx may look confusing, we can use the example below in the comment
 
@@ -72,6 +73,7 @@
 	    Route,
 	    { path: '/', component: Main },
 	    React.createElement(Route, { path: 'about', component: About }),
+	    React.createElement(Route, { path: 'example', component: Example }),
 	    React.createElement(IndexRoute, { component: Weather })
 	  )
 	), document.getElementById('app'));
@@ -19810,7 +19812,8 @@
 	//
 
 	var _require = __webpack_require__(161),
-	    Link = _require.Link;
+	    Link = _require.Link,
+	    IndexLink = _require.IndexLink;
 
 	var Nav = React.createClass({
 	  displayName: 'Nav',
@@ -19825,14 +19828,19 @@
 	        'Nav component'
 	      ),
 	      React.createElement(
-	        Link,
-	        { to: '/' },
+	        IndexLink,
+	        { to: '/', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
 	        'Get Weather'
 	      ),
 	      React.createElement(
-	        Link,
-	        { to: '/about' },
+	        IndexLink,
+	        { to: '/about', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
 	        'About'
+	      ),
+	      React.createElement(
+	        IndexLink,
+	        { to: '/example', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
+	        'Example'
 	      )
 	    );
 	  }
@@ -24963,6 +24971,28 @@
 	});
 
 	module.exports = About;
+
+/***/ },
+/* 220 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+
+	var Example = React.createClass({
+	  displayName: 'Example',
+
+	  render: function render() {
+	    return React.createElement(
+	      'h2',
+	      null,
+	      'Example component'
+	    );
+	  }
+	});
+
+	module.exports = Example;
 
 /***/ }
 /******/ ]);
